@@ -1,9 +1,11 @@
-import duckdb
-import time
+import os
 import smtplib
-from email.message import EmailMessage
-import paho.mqtt.client as mqtt
 from datetime import datetime, timedelta
+from email.message import EmailMessage
+
+import duckdb
+import paho.mqtt.client as mqtt
+from dotenv import load_dotenv
 
 # Initialize DuckDB connection
 con = duckdb.connect("edge_data.duckdb")
@@ -19,9 +21,13 @@ con.execute("""
 TEMP_MIN, TEMP_MAX = 10, 40
 HUM_MIN, HUM_MAX = 20, 80
 
-EMAIL_SENDER = "omerrahsan906@gmail.com"
-EMAIL_PASSWORD = "gutrkyxgsfyglwza"  
-EMAIL_RECEIVER = "rahsan72@students.rowan.edu"
+
+load_dotenv()
+
+EMAIL_SENDER = os.getenv("EMAIL_SENDER")
+EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
+EMAIL_RECEIVER = os.getenv("EMAIL_RECEIVER")
+
 
 last_alert_time = {}
 
