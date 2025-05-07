@@ -1,2 +1,3 @@
-# iot-anomaly-detection
-Final Project - IoT Device, MQTT, InfluxDB, Telegraf, Grafana, Edge &amp; Cloud Anomaly Detection
+# IoT Anomaly Detection Project
+
+This project collects real-time temperature and humidity data from multiple ESP8266-based DHT11 sensors. The data is transmitted via MQTT and stored in InfluxDB, where it is visualized using Grafana dashboards that display trends, live readings, and environmental changes across locations such as the bedroom, office, and outdoors. Anomaly detection is performed at both the Edge using DuckDB and at the Cloud level using Python-based machine learning, enabling early identification of unusual environmental conditions.
