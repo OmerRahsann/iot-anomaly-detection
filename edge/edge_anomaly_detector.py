@@ -7,7 +7,6 @@ import duckdb
 import paho.mqtt.client as mqtt
 from dotenv import load_dotenv
 
-# Initialize DuckDB connection
 con = duckdb.connect("edge_data.duckdb")
 con.execute("""
     CREATE TABLE IF NOT EXISTS sensor_data (
@@ -18,7 +17,7 @@ con.execute("""
     )
 """)
 
-TEMP_MIN, TEMP_MAX = 10, 40
+TEMP_MIN, TEMP_MAX = 10, 35
 HUM_MIN, HUM_MAX = 20, 80
 
 
